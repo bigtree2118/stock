@@ -3,30 +3,34 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
-	
+
 	<welcome-file-list>
 		<welcome-file>/</welcome-file>
 	</welcome-file-list>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:app-context.xml</param-value>
+	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:applicationContext.xml</param-value>
-	</context-param>
+	
 	<listener>
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>com.fengmianyu.vstorm.online.listener.InitListener</listener-class>
+		<listener-class>io.bigtree.stock.vpa.listener.InitListener</listener-class>
 	</listener>
+	
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>/static/*</url-pattern>
 	</servlet-mapping>
+	
 	<filter>
 		<filter-name>staticCacheFilter</filter-name>
-		<filter-class>com.fengmianyu.vstorm.online.filter.StaticCacheFilter</filter-class>
+		<filter-class>io.bigtree.stock.vpa.filter.StaticCacheFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>staticCacheFilter</filter-name>
@@ -44,15 +48,10 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
-	<!-- Druid监控 -->
-	<servlet>
-		<servlet-name>druidMonitor</servlet-name>
-		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
-	</servlet>
+	
 	<servlet-mapping>
-		<servlet-name>druidMonitor</servlet-name>
-		<url-pattern>/druid/*</url-pattern>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/static/*</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -60,13 +59,14 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:servlet-mvc.xml</param-value>
+			<param-value>classpath:app-mvc.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
 	
 	<session-config>
