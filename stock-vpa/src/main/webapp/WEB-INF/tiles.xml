@@ -4,62 +4,20 @@
 
 	<!-- 基础模板 -->
 	<definition name="base.template" template="/WEB-INF/view/layout/base.jsp">
-		<put-attribute name="title" value="火山风暴 - 飒飒动漫旗下最专业的电影、动漫、艺人的资讯及图片网站" />
+		<put-attribute name="title" value="" />
 		<put-attribute name="header" value="/WEB-INF/view/layout/header.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/view/layout/footer.jsp" />
 	</definition>
-	<definition name="base.nofooter.template" template="/WEB-INF/view/layout/base.nofooter.jsp">
-		<put-attribute name="title" value="火山风暴 - 飒飒动漫旗下最专业的电影、动漫、艺人的资讯及图片网站" />
-		<put-attribute name="header" value="/WEB-INF/view/layout/header.jsp" />
-		<put-attribute name="body" value="" />
-	</definition>
-
+	
 	<definition name="index.page" extends="base.template" >
 		<put-attribute name="now" value="index" cascade="true"/>
 		<put-attribute name="body" value="/WEB-INF/view/index.jsp" />
-	</definition>
-	<definition name="about.page" extends="base.template" >
-		<put-attribute name="now" value="about" cascade="true"/>
-		<put-attribute name="body" value="/WEB-INF/view/about.jsp" />
 	</definition>
 	
 	<definition name="news.*.page" extends="base.template" >
 		<put-attribute name="now" value="news" cascade="true"/>
 		<put-attribute name="body" value="/WEB-INF/view/news/{1}.jsp" />
 	</definition>
-	<definition name="news.homeArea.page" template="/WEB-INF/view/news/home_area.jsp"/>
 
-	<definition name="film.*.page" extends="base.template" >
-		<put-attribute name="now" value="film" cascade="true"/>
-		<put-attribute name="body" value="/WEB-INF/view/film/{1}.jsp" />
-	</definition>
-	<definition name="film.homeArea.page" template="/WEB-INF/view/film/home_area.jsp"/>
-	<definition name="film.filmVaultIndex.page" extends="base.template">
-		<put-attribute name="now" value="film" cascade="true"/>
-		<put-attribute name="body" value="/WEB-INF/view/film/film_vault_index.jsp"/>
-	</definition>
-
-	<definition name="comic.*.page" extends="base.template" >
-		<put-attribute name="now" value="comic" cascade="true"/>
-		<put-attribute name="body" value="/WEB-INF/view/comic/{1}.jsp" />
-	</definition>
-	<definition name="comic.homeArea.page" template="/WEB-INF/view/comic/home_area.jsp"/>
-	<definition name="comic.collection.page" template="/WEB-INF/view/comic/collection.jsp"/>
-	
-	<definition name="actor.*.page" extends="base.template" >
-		<put-attribute name="now" value="actor" cascade="true"/>
-		<put-attribute name="body" value="/WEB-INF/view/actor/{1}.jsp" />
-	</definition>
-	<definition name="actor.homeArea.page" template="/WEB-INF/view/actor/home_area.jsp"/>
-	
-	<definition name="media.video_list.page" template="/WEB-INF/view/media/video_list.jsp"/>
-	<definition name="media.picture_list.page" template="/WEB-INF/view/media/picture_list.jsp"/>
-	<definition name="media.news_list.page" template="/WEB-INF/view/media/news_list.jsp"/>
-	<definition name="media.post.page" extends="base.nofooter.template">
-		<put-attribute name="now" value="" cascade="true" />
-		<put-attribute name="body" value="/WEB-INF/view/media/post.jsp" />
-	</definition>
-
-	<definition name="banner.page" template="/WEB-INF/view/banner/banner.jsp"/>
 </tiles-definitions>

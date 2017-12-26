@@ -5,7 +5,7 @@
 	version="3.0">
 
 	<welcome-file-list>
-		<welcome-file>/</welcome-file>
+		<welcome-file>/index</welcome-file>
 	</welcome-file-list>
 
 	<context-param>
@@ -22,12 +22,7 @@
 	<listener>
 		<listener-class>io.bigtree.stock.vpa.listener.InitListener</listener-class>
 	</listener>
-	
-	<servlet-mapping>
-		<servlet-name>default</servlet-name>
-		<url-pattern>/static/*</url-pattern>
-	</servlet-mapping>
-	
+
 	<filter>
 		<filter-name>staticCacheFilter</filter-name>
 		<filter-class>io.bigtree.stock.vpa.filter.StaticCacheFilter</filter-class>
@@ -66,7 +61,7 @@
 
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
 	<session-config>
