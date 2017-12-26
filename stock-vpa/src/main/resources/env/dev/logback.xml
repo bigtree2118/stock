@@ -1,0 +1,35 @@
+<configuration>
+	<property name="log.env" value="dev" />
+	<property name="log.name" value="stock-vpa" />
+	<property name="log.level" value="debug" />
+	<property name="log.url" value="${catalina.home}/logs" />
+		
+	<contextName>${log.name}</contextName>
+	
+	<jmxConfigurator />
+	
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date %level %logger{55} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.url}/${log.name}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.url}/history/${log.name}.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>%date %level %logger{55} - %msg%n</pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+	<root level="${log.level}">
+		<appender-ref ref="console" />
+		<appender-ref ref="file" />
+	</root>
+</configuration>
