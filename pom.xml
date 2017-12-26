@@ -2,6 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>pom</packaging>
-	<artifactId>bigtree-stock</artifactId>
+	<artifactId>stock</artifactId>
 	<version>1.0.0</version>
+	<groupId>io.bigtree</groupId>
 </project>
