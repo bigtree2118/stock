@@ -1,7 +1,7 @@
 <configuration>
 	<property name="log.env" value="dev" />
 	<property name="log.name" value="stock-vpa" />
-	<property name="log.level" value="info" />
+	<property name="log.level" value="debug" />
 	<property name="log.url" value="${catalina.home}/logs" />
 		
 	<contextName>${log.name}</contextName>
