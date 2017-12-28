@@ -7,7 +7,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class KlineController {
 	@RequestMapping(value="kline")
-	public ModelAndView index() {
+	public ModelAndView kline() {
 		return new ModelAndView("kline/kline");
+	}
+	
+	@RequestMapping(value="candlestick")
+	public ModelAndView candlestick() {
+		return new ModelAndView("kline/candlestick");
 	}
 }
