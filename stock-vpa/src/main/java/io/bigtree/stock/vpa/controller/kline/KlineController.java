@@ -15,4 +15,9 @@ public class KlineController {
 	public ModelAndView candlestick() {
 		return new ModelAndView("kline/candlestick");
 	}
+	
+	@RequestMapping(value="echarts")
+	public ModelAndView echarts() {
+		return new ModelAndView("kline/echarts");
+	}
 }
