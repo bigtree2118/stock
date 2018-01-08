@@ -11,7 +11,7 @@ pymysql.install_as_MySQLdb()
 conn = create_engine('mysql+mysqldb://root:111111@localhost:3306/stock?charset=utf8')
 
 # 股票代码列表
-stock_list = ['600035', '000633', '000651', '002415']
+stock_list = ['002218', '600206', '300349', '002493', '600600', '600667', '603225', '600508', '000729', '002079', '000633']
 
 # 定义get_k_data接口返回数据的字段类型
 k_data_dtype = {
